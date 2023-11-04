@@ -1,0 +1,28 @@
+<html lang="en">
+<%- include("./partials/head.ejs") %>
+
+<body>
+  <%- include("./partials/nav.ejs") %>
+
+  <div class="blogs content">
+    <h2>All packages</h2>
+
+    <% if (packages.length > 0) { %>
+      <% packages.forEach(package => { %>
+
+        <h3 class="title"><%= package.title %></h3>
+        <% package.days.forEach(day => { %>
+          <p class="snippet"><%= day.Day %></p>
+          <p class="snippet"><%= day.Activity %></p>
+          <% }); %>
+      <% }) %>
+    <% } else { %>
+      <p>There are no packages to display...</p>
+    <% } %>
+    
+  </div>
+
+  <%- include("./partials/footer.ejs") %>
+
+</body>
+</html>
